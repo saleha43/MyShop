@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+</head>
+    <title>MyShop</title>
+
+    <!-- CSS file connect -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+<nav>
+    <h1>MyShop</h1>
+
+    <input 
+    type="text" 
+    id="search-box" 
+    placeholder="Search for products">
+
+    <button id="login-btn">Login</button>
+    <button id="cart-btn">Cart (0)</button>
+    <button id="wishlist-btn">❤️ Wishlist (0)</button>
+    <button id="orders-btn">📦 Orders</button>
+</nav>
+<div id="wishlist-box">
+
+    <h2>❤️ My Wishlist</h2>
+
+    <div id="wishlist-items">
+        <p>Your wishlist is empty.</p>
+    </div>
+
+    <button id="close-wishlist">
+        Close
+    </button>
+
+</div>
+<!-- ORDER HISTORY -->
+
+<div id="orders-box">
+
+    <h2>📦 My Orders</h2>
+
+    <div id="order-list">
+        <p>No orders yet.</p>
+    </div>
+
+    <button id="close-orders">
+        Close
+    </button>
+
+</div>
+<!-- LOGIN POPUP -->
+
+<div id="login-box">
+
+    <h2>Login</h2>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Enter your name"
+    >
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+    >
+
+    <button id="submit-login">
+        Login
+    </button>
+
+    <button id="close-login">
+        Close
+    </button>
+
+</div>
+<section class="categories">
+
+    <h2>Categories</h2>
+
+    <button id="mobiles-btn">Mobiles</button>
+    <button id="fashion-btn">Fashion</button>
+    <button id="electronics-btn">Electronics</button>
+    <button id="beauty-btn">Beauty</button>
+    <button id="home-btn">Home</button>
+    <button id="all-btn">All Products</button>
+
+</section>
+
+
+
+<div id="cart-box">
+
+    <h2>Your Cart</h2>
+
+    <div id="cart-items">
+        <p>Your cart is empty.</p>
+    </div>
+
+    <h3 id="cart-total">Total: ₹0</h3>
+
+    <button id="checkout-btn">Checkout</button>
+    <button id="clear-cart-btn">Clear Cart</button>
+
+</div>
+<section class="products">
+
+    <h2>Products</h2>
+    <p id="no-products">No products found.</p>
+
+    <div class="product-container" id="product-container">
+        
+    </div>
+
+
+        <!-- Smartphone -->
+
+        <div class="product-card">
+
+            
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="Smartphone">
+    
+
+            <h3 onclick="openProduct('Smartphone')">
+                Smartphone
+            </h3>
+
+            <p>₹14,999</p>
+            <p class="stock">In Stock</p>
+
+            <p>⭐ 4.5/5</p>
+
+            <p>Electronics</p>
+
+            <button class="add-cart">
+                Add to Cart
+            </button>
+            <button class="wishlist-btn" onclick="addToWishlist('Smartphone')">♡ Wishlist</button>
+            <button class="buy-now" onclick="buyNow('Smartphone')">
+                Buy Now
+            </button>
+
+        </div>
+
+
+        <!-- Headphones -->
+
+        <div class="product-card">
+
+           <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Headphones">
+
+            <h3 onclick="openProduct('Headphones')">
+                Headphones
+            </h3>
+
+            <p>₹1,599</p>
+            <p class="stock">In Stock</p>
+
+            <p>⭐ 4.3/5</p>
+
+            <p>Electronics</p>
+
+            <button class="add-cart">
+                Add to Cart
+            </button>
+            <button class="wishlist-btn" onclick="addToWishlist('Headphones')">♡ Wishlist</button>
+            <button class="buy-now" onclick="buyNow('Headphones')">
+                Buy Now
+            </button>
+
+        </div>
+
+
+        <!-- Shoes -->
+
+        <div class="product-card">
+
+           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Shoes">
+            <h3 onclick="openProduct('Shoes')">
+                Shoes
+            </h3>
+
+            <p>₹999</p>
+            <p class="stock out-of-stock">Out of Stock</p>
+
+            <p>⭐ 4.2/5</p>
+
+            <p>Fashion</p>
+
+            <button class="add-cart">
+                Add to Cart
+            </button>
+            <button class="buy-now" onclick="buyNow('Shoes')">
+                Buy Now
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- PRODUCT DETAILS -->
+
+<div id="product-details">
+
+    <h2 id="detail-name"></h2>
+
+    <p id="detail-price"></p>
+
+    <p id="detail-rating"></p>
+
+    <p id="detail-category"></p>
+    <p id="detail-stock"></p>
+    <p id="detail-description"></p>
+
+    <button id="detail-cart">
+        Add to Cart
+    </button>
+    <button id="close-details">
+         Close
+    </button>
+
+</div>
+<!-- CHECKOUT -->
+
+<div id="checkout-page">
+
+    <h2>Checkout</h2>
+    <div id="order-summary">
+
+    <h3>Order Summary</h3>
+    <div id="order-summary">
+
+    <h3>Order Summary</h3>
+
+    <div id="summary-items"></div>
+
+    <h3 id="summary-total">
+        Total: ₹0
+    </h3>
+
+</div>
+
+   
+
+    <h3>Delivery Address</h3>
+
+    <input
+        type="text"
+        id="address"
+        placeholder="Enter your address"
+    >
+
+    <input
+        type="text"
+        id="city"
+        placeholder="Enter your city"
+    >
+
+    <input
+        type="text"
+        id="pincode"
+        placeholder="Enter pincode"
+    >
+
+    <h3>Payment Method</h3>
+
+    <select id="payment-method">
+
+        <option value="cod">
+            Cash on Delivery
+        </option>
+
+        <option value="upi">
+            UPI
+        </option>
+
+        <option value="card">
+            Card
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button id="place-order">
+        Place Order
+    </button>
+
+    <button id="close-checkout">
+        Close
+    </button>
+
+</div>
+<!-- ORDER SUCCESS -->
+
+<div id="order-success">
+
+    <h2>🎉 Order Placed Successfully!</h2>
+
+    <p>Thank you for shopping with MyShop.</p>
+
+    <p>Your order has been confirmed.</p>
+    <p id="selected-payment"></p>
+
+    <button id="continue-shopping">
+        Continue Shopping
+    </button>
+
+</div>
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-section">
+
+        <h3>MyShop</h3>
+
+        <p>Your simple online shopping website.</p>
+
+    </div>
+
+
+    <div class="footer-section">
+
+        <h3>Quick Links</h3>
+
+        <p>Home</p>
+        <p>Products</p>
+        <p>Categories</p>
+
+    </div>
+
+
+    <div class="footer-section">
+
+        <h3>Customer Support</h3>
+
+        <p>Help Center</p>
+        <p>Contact Us</p>
+        <p>Returns</p>
+
+    </div>
+
+</footer>
+
+<p class="copyright">
+    © 2026 MyShop. All rights reserved.
+</p>
+<script src="script.js"></script>
+
+</body>
+</html>
