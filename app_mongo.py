@@ -4,14 +4,22 @@ from pymongo import MongoClient
 from datetime import datetime, timezone
 from pathlib import Path
 import math
+import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={
+    r"/api/*": {"origins": "https://saleha43.github.io"}
+})
 
 BASE_DIR = Path(__file__).resolve().parent
 
-# Connect to MongoDB
+
+# Connect to MongoDB Atlas
+MONGODB_URI = os.getenv("MONGODB_URI")
+
 client = MongoClient(
-    "mongodb://localhost:27017/",
+    MONGODB_URI,
     serverSelectionTimeoutMS=5000
 )
 
